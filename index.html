@@ -14,8 +14,34 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <h1>Weather app project</h1>
     <div class="container"></div>
+    <div class="weatherApp">
+      <div class="row">
+        <h1 id="city">Athens</h1>
+        <h6><span id="day">Tuesday</span>, <span id="date">13:28</span></h6>
+        <div class="col-6">
+          <ul>
+            <li id="description">sunny</li>
+            <li>
+              Humidity: <span id="humidity">67</span>%, Wind:
+              <span id="wind">5</span> km/h
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <h1>☀️16°C | F</h1>
+        </div>
+        <small
+          >Coded by Zuzana Bernatek. Open-sourced on
+          <a href="https://github.com/Orluska/vanilla-weather-app-project"
+            >GitHub</a
+          >
+          and hosted on
+          <a href="https://luxury-pie-418f41.netlify.app">Netlify</a>.</small
+        >
+      </div>
+    </div>
+
     <script src="src/app.js"></script>
   </body>
 </html>
