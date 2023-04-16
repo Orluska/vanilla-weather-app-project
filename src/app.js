@@ -1,25 +1,25 @@
-let now = new Date();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-document.querySelector("#dayWeek").innerHTML = `${day}`;
-document.querySelector("#time").innerHTML = `${hours}:${minutes}`;
-
 function displayWeather(response) {
   console.log(response);
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -33,6 +33,9 @@ function displayWeather(response) {
   );
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
+  );
+  document.querySelector("#date").innerHTML = formatDate(
+    response.data.time * 1000
   );
 }
 
