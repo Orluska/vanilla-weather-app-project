@@ -28,6 +28,13 @@ function displayWeather(response) {
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+  let iconPic = response.data.condition.icon;
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconPic}.png`
+    );
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.temperature.humidity
   );
@@ -41,6 +48,6 @@ function displayWeather(response) {
 
 let apiKey = "b73t865943aecob0f48a91ff9b719c02";
 let query = "Paris";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}`;
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayWeather);
