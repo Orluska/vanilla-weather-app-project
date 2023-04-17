@@ -39,31 +39,37 @@
               </div>
             </div>
           </form>
-          <div class="row">
-            <h1 id="city"></h1>
 
-            <div class="col-7">
-              <ul>
-                <li><span id="date"></span>, <span id="description"></span></li>
-                <li>
-                  Humidity: <span id="humidity"></span>%, Wind:
-                  <span id="wind"></span> km/h
-                </li>
-              </ul>
-            </div>
+          <div class="d-flex flex-container">
+            <div class="row">
+              <h1 id="city"></h1>
+              <div class="col-7 align-items-center">
+                <br/>
+                <ul>
+                  <li>
+                    <span id="date"></span>, <span id="description"></span>
+                  </li>
+                  <li>
+                    Humidity: <span id="humidity"></span>%, Wind:
+                    <span id="wind"></span> km/h
+                  </li>
+                </ul>
+              </div>
 
-            <div class="col-5">
-              <span class="weather-temperature">
-                <img
-                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                  id="icon" /><span id="temperature"></span></span
-              ><span class="weather-units"
-                ><a href="#" id="celcius-link" class="active">°C</a> |
-                <a href="#" id="fahrenheit-link">F</a></span
-              >
+              <div class="col-5 align-items-center">
+                <span class="weather-temperature">
+                  <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                    id="icon" /><span id="temperature"></span></span
+                ><span class="weather-units"
+                  ><a href="#" id="celcius-link" class="active">°C</a> |
+                  <a href="#" id="fahrenheit-link">F</a></span
+                >
+              </div>
             </div>
           </div>
         </div>
+
         <small
           >Coded by Zuzana Bernatek. Open-sourced on
           <a href="https://github.com/Orluska/vanilla-weather-app-project"
