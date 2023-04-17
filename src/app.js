@@ -46,8 +46,19 @@ function displayWeather(response) {
   );
 }
 
-let apiKey = "b73t865943aecob0f48a91ff9b719c02";
-let query = "Athens";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
+function searchCity(query) {
+  let apiKey = "b73t865943aecob0f48a91ff9b719c02";
+  let unit = "metric";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=${unit}`;
 
-axios.get(apiUrl).then(displayWeather);
+  axios.get(apiUrl).then(displayWeather);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#city-input");
+  searchCity(cityElement.value);
+}
+searchCity("Athens");
+
+let form = document.querySelector("#searchButton");
+form.addEventListener("click", handleSubmit);
