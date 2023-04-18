@@ -93,4 +93,41 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celcius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-searchCity("Athens");
+function currentLocationWeather(position) {
+  console.log(position);
+  let apiKey = "b73t865943aecob0f48a91ff9b719c02";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+  function displayCurrentLocationWeather(response) {
+    celsiusTemperature = response.data.temperature.current;
+
+    document.querySelector("#temperature").innerHTML =
+      Math.round(celsiusTemperature);
+
+    document.querySelector("#city").innerHTML = response.data.city;
+    document.querySelector("#description").innerHTML =
+      response.data.condition.description;
+    let iconPic = response.data.condition.icon;
+    document
+      .querySelector("#icon")
+      .setAttribute(
+        "src",
+        `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconPic}.png`
+      );
+    document.querySelector("#humidity").innerHTML = Math.round(
+      response.data.temperature.humidity
+    );
+    document.querySelector("#wind").innerHTML = Math.round(
+      response.data.wind.speed
+    );
+    document.querySelector("#date").innerHTML = formatDate(
+      response.data.time * 1000
+    );
+  }
+
+  axios.get(apiUrl).then(displayCurrentLocationWeather);
+}
+
+navigator.geolocation.getCurrentPosition(currentLocationWeather);
