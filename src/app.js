@@ -20,6 +20,36 @@ function formatDate(timestamp) {
   let day = days[now.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+                <div class="weather-forecast-day">${day}</div>
+                <div class="forecast-image">
+                  <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                    id="icon-forecast"
+                    width="30px"
+                  />
+                </div>
+                <div class="weather-forecast-temperatures">
+                  <span id="temperature-forecast-max">18°C </span
+                  ><span id="temperature-forecast-min">12°C</span>
+                </div>
+              </div>
+            `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 function displayWeather(response) {
   console.log(response);
 
@@ -94,3 +124,4 @@ let celsiusLink = document.querySelector("#celcius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Athens");
+displayForecast();

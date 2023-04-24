@@ -39,9 +39,9 @@ h1 {
 }
 
 #temperature-forecast-max {
-  font-size: 13px;
+  font-size: 11px;
 }
 #temperature-forecast-min {
-  font-size: 13px;
+  font-size: 11px;
   color: gray;
 }
