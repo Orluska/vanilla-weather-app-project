@@ -34,3 +34,14 @@ h1 {
   cursor: default;
   text-decoration: none;
 }
+.weather-forecast {
+  text-align: center;
+}
+
+#temperature-forecast-max {
+  font-size: 13px;
+}
+#temperature-forecast-min {
+  font-size: 13px;
+  color: gray;
+}
