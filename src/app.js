@@ -57,10 +57,10 @@ function displayForecast(response) {
                 <div class="weather-forecast-temperatures">
                   <span id="temperature-forecast-max">${Math.round(
                     forecastDay.temperature.maximum
-                  )}</span
+                  )}°</span
                   > <span id="temperature-forecast-min">${Math.round(
                     forecastDay.temperature.minimum
-                  )}</span>
+                  )}°</span>
                 </div>
               </div>
             `;
@@ -124,24 +124,10 @@ function handleSubmit(event) {
   searchCity(cityElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = celsiusTemperature * 1.8 + 32;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    fahrenheitTemperature
-  );
-  //remove active class from celsius, add to fahreinheit
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-}
-
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemperature);
-  //remove active class from F and to C
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
 }
 
 let form = document.querySelector("#searchButton");
@@ -149,10 +135,4 @@ form.addEventListener("click", handleSubmit);
 
 let celsiusTemperature = null;
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celcius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-searchCity("London");
+searchCity("Athens");
