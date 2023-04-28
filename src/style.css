@@ -7,13 +7,13 @@ body {
 
 .weather-app {
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 .weather-app-wrapper {
   max-width: 600px;
   margin: 120px auto;
+  padding: 10px;
 }
 
 h1 {
